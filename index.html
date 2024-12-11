@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鵬鵬陪你度過深夜</title>
+    <link rel="stylesheet" href="styles_1126.css">
+</head>
+<body>
+<section class="side-bar">
+    <p id="userIdDisplay">User ID</p>
+    <p id="conversationCount">對話次數: 0</p>
+    <nav>
+        <p>Made by Pengyu</p>
+    </nav>
+</section>
+<section class="main">
+    <h1>日記機器人</h1>
+    <p id="output"></p>
+    <div class="bottom-section">
+        <div class="input-container">
+            <label for="userInput"></label><textarea id="userInput" placeholder="請在此分享今天希望記錄的日記內容"></textarea>
+            <div id="submit">➣</div>
+        </div>
+
+        </div>
+        <p class="info"> For improve communication quality
+        </p>
+</section>
+
+<div id="userIdModal" class="modal">
+    <div class="modal-content">
+        <label for="userIdInput">請輸入手機尾號後5位:</label>
+        <input type="text" id="userIdInput" />
+        <button id="submitUserId">確認</button>
+    </div>
+</div>
+
+<div id="consentModal" class="modal">
+    <div class="modal-content">
+        <h2>說明指導</h2>
+        <p>我是一個日記機器人，請盡可能的跟我分享你今天發生的重要事件，讓我一起為當天做一個紀錄。（本階段歷時10分鐘的時間）</p>
+        <button id="acceptConsent" class="btn">同意並接受</button>
+    </div>
+</div>
+
+
+<button id="exportButton" onclick="exportToExcel()">結束研究</button>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+<script src="main_1126.js"></script>
+
+</body>
+</html>
