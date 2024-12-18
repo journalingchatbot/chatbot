@@ -229,16 +229,7 @@ const consentModal = document.getElementById("consentModal");
 const userIdModal = document.getElementById("userIdModal");
 const acceptConsentBtn = document.getElementById("acceptConsent");
 
-// Display consent form modal on page load
-window.onload = function() {
-  consentModal.style.display = "block";
-};
 
-// When the user clicks the "同意並接受" button, hide the consent modal and show the User ID modal
-acceptConsentBtn.onclick = function() {
-  consentModal.style.display = "none";
-  userIdModal.style.display = "block";
-};
 
 
 
