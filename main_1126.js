@@ -208,21 +208,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   });
 
-
-  // Function to handle User ID submission
-  submitUserIdBtn.addEventListener('click', () => {
-    const userIdInputValue = userIdInput.value.trim();
-    if (userIdInputValue) {
-      userId = userIdInputValue; // 設定全域變數 userId
-      userIdDisplay.textContent = `User ID: ${userId}`; // 顯示用戶ID
-      modal.style.display = 'none'; // 關閉 modal
-    } else {
-      alert('請輸入有效的 User ID');
-    }
-  });
-});
-
-
 //用來縮短文字長度的功能
 function shortenTextBy10Percent(text) {
   const length = text.length;
