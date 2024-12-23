@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    color: #000; /* 黑色字体 */
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #FFF; /* 白色背景 */
+    display: flex;
+}
+
+h1 {
+    font-size: 30px; /* 字體稍小 */
+    font-weight: 600;
+    padding: 50px 0;
+    margin: 0;
+}
+
+.side-bar {
+    background-color: #E6E6E6; /* 浅灰色背景 */
+    width: 244px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 0;
+    text-align: center;
+    justify-content: center;
+    place-items: center;
+    height: 700px !important;
+    width: 90% !important;
+    padding: 0 20px;
+    background-color: #FFF;  /* 白色背景 */
+    margin: 0 auto;
+}
+
+.bottom-section {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.info {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.5); /* 半透明黑色 */
+    font-size: 11px;
+}
+
+input {
+    border: none;
+    background-color: rgba(0, 0, 0, 0.1); /* 浅灰色背景 */
+    width: 90%;
+    font-size: 20px;
+    padding: 12px 15px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 54px 55px,
+    rgba(0, 0, 0, 0.05) 0 -12px 30px,
+    rgba(0, 0, 0, 0.05) 0 4px 6px,
+    rgba(0, 0, 0, 0.05) 0 12px 3px,
+    rgba(0, 0, 0, 0.05) 0 -3px 5px;
+}
+
+input:focus {
+    outline: none;
+}
+
+textarea {
+    flex-grow: 1;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.1); /* Light gray background */
+    width: calc(100% - 50px);
+    height: 100%;
+    font-size: 20px;
+    padding: 15px 45px 15px 15px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 10px 55px,
+    rgba(0, 0, 0, 0.05) 0 -12px 30px,
+    rgba(0, 0, 0, 0.05) 0 4px 6px,
+    rgba(0, 0, 0, 0.05) 0 12px 3px,
+    rgba(0, 0, 0, 0.05) 0 -3px 5px;
+    resize: none; /* Prevent the user from resizing the textarea */
+}
+
+
+textarea:focus {
+    outline: none;
+}
+
+.input-container {
+    position: relative;
+    width: 90%;
+    max-width: 1075px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    height: 200px;
+    margin-left: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.input-container #submit {
+    font-size: 25px; /* 增大箭頭的大小 */
+    cursor: pointer;
+    position: absolute; /* 絕對定位 */
+    right: 25px;/* 調整箭頭位置 */
+    bottom: 70px; /* 調整箭頭位置 */
+    margin-left: -25px;
+    width: 10px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    border: none;
+    background-color: transparent; /* 保持背景透明 */
+    color: black;  /* 可以自定箭頭顏色 */
+    padding: 0;
+}
+
+
+button {
+    border: solid 0.5px rgba(0, 0, 0, 0.5);  /* 浅黑色边框 */
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    color: #000; /* 黑色文字 */
+}
+
+nav {
+    border-top: solid 0.5px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    margin: 10px;
+}
+
+.history {
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    font-size: 12px;
+    overflow-y: auto;
+    background-color: #F5F5F5; /* 浅灰色背景 */
+}
+
+.history p {
+    cursor: pointer;
+}
+
+#output {
+    font-size: 23px; /* 字體放大 */
+    color: #000; /* 黑色字体 */
+    padding: 15px;
+    margin: 20px 0;
+    width: 90%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.1); /* 淺黑色背景 */
+    border-radius: 10px;
+    position: relative;
+    top: -30px;
+    min-height: 50px; /* 設置最小高度 */
+    max-height: 500px; /* 設置最大高度 */
+    height: 300px; /* 初始高度 */
+    overflow-y: auto;  /* 如果內容超過最大高度，則添加滾動條 */
+    opacity: 0.8;
+    box-sizing: border-box;
+}
+
+
+#conversationCount {
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+    top: -250px;
+    text-align: center;
+    color: #000; /* 黑色字体 */
+}
+
+/* Modal Background */
+.modal {
+    display: block; /* Modal will display initially */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+}
+
+/* Modal Content (popup box) */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #888;
+    width: auto; /* Let the width adjust based on content */
+    max-width: 80%; /* Ensure it doesn't get too wide */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    position: fixed; /* Ensure it's positioned relative to the viewport */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust positioning to truly center */
+    word-wrap: break-word; /* Allow text to break and wrap within the modal */
+    max-height: 90vh; /* Limit max height and allow scrolling */
+    overflow-y: auto; /* Add scroll if the content exceeds max height */
+}
+
+#userIdDisplay {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Input styling to appear inside the white modal */
+#userIdInput {
+    width: 90%; /* Make input box fit well inside the modal */
+    padding: 10px;
+    border: 1px solid #ccc; /* Light gray border for input */
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: #f9f9f9; /* Slightly gray background inside white modal */
+    font-size: 16px;
+}
+
+/* Button styling */
+#submitUserId {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 10000; /* 確保按鈕在頂層可以被點擊 */
+
+    #submitUserId:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .chat-container {
+        width: 90%;
+        max-width: 800px;
+        height: 60vh; /* 可根據需求調整高度 */
+        background-color: #f9f9f9;
+        padding: 20px;
+        margin: 20px auto;
+        overflow-y: auto; /* 如果內容超出則顯示滾動條 */
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.05) 0 4px 6px, rgba(0, 0, 0, 0.05) 0 12px 3px;
+    }
+
+    .message {
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 10px;
+        max-width: 80%;
+        word-wrap: break-word;
+    }
+
+    .user-message {
+        background-color: #d1ecf1;
+        align-self: flex-end;
+        text-align: right;
+    }
+
+    .assistant-message {
+        background-color: #f8d7da;
+        align-self: flex-start;
+    }
+}
+
+#exportButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff; /* 白色背景 */
+    color: #808080; /* 灰色文字 */
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    padding: 0;
+    margin: 0;
+}
+
+#exportButton:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
