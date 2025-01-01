@@ -10,9 +10,9 @@ app.use(cors()); // Enable CORS
 app.use(express.json()); // Parse JSON request bodies
 app.use(express.static('public')); // Serve static files (HTML/CSS/JS)
 
-// Handle the root route
+// Serve the default index.html file for the root route
 app.get('/', (req, res) => {
-    res.send('Welcome to my API server!');
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Create Axios instance for the OpenAI API
@@ -23,13 +23,23 @@ const apiClient = axios.create({
 
 // API Route
 console.log('Route /api/data is registered');
-app.post('/api/data', (req, res) => {
-    res.json({
-        message: 'Mock response: Data fetched successfully',
-        data: {
-            someKey: 'someValue'
-        }
-    });
+app.post('/api/data', async (req, res) => {
+    try {
+        const response = await apiClient.post('', {
+            model: 'gpt-4',
+            messages: [
+                { role: 'system', content: 'You are a helpful assistant.' },
+                { role: 'user', content: 'Hello!' }
+            ]
+        });
+        res.json(response.data);
+    } catch (error) {
+        console.error('Error details:', error.response?.data || error.message);
+        res.status(500).json({
+            error: 'Failed to fetch data',
+            details: error.response?.data || error.message
+        });
+    }
 });
 
 // Start the server
