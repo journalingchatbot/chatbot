@@ -10,6 +10,14 @@ app.use(cors()); // Enable CORS
 app.use(express.json()); // Parse JSON request bodies
 app.use(express.static('public')); // Serve static files (HTML/CSS/JS)
 
+app.use('/public', express.static('public', {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.css')) {
+            res.set('Content-Type', 'text/css');
+        }
+    }
+}));
+
 // Serve the default index.html file for the root route
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
