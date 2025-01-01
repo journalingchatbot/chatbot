@@ -18,6 +18,12 @@ app.use('/public', express.static('public', {
     }
 }));
 
+app.use(express.static('public', {
+    setHeaders: (res, filePath) => {
+        console.log(`Serving: ${filePath}`);
+    }
+}));
+
 // Serve the default index.html file for the root route
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
