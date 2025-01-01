@@ -10,6 +10,17 @@ app.use(cors()); // Enable CORS
 app.use(express.json()); // Parse JSON request bodies
 app.use(express.static('public')); // Serve static files (HTML/CSS/JS)
 
+// Serve the default index.html file for the root route
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Create Axios instance for the OpenAI API
+const apiClient = axios.create({
+    baseURL: 'https://api.openai.com/v1/chat/completions',
+    headers: { 'Authorization': `Bearer ${process.env.API_KEY}` }
+});
+
 app.use('/public', express.static('public', {
     setHeaders: (res, path) => {
         if (path.endsWith('.css')) {
@@ -23,17 +34,6 @@ app.use(express.static('public', {
         console.log(`Serving: ${filePath}`);
     }
 }));
-
-// Serve the default index.html file for the root route
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-// Create Axios instance for the OpenAI API
-const apiClient = axios.create({
-    baseURL: 'https://api.openai.com/v1/chat/completions',
-    headers: { 'Authorization': `Bearer ${process.env.API_KEY}` }
-});
 
 // API Route
 console.log('Route /api/data is registered');
