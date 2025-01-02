@@ -21,10 +21,6 @@ const apiClient = axios.create({
     headers: { 'Authorization': `Bearer ${process.env.API_KEY}` }
 });
 
-const path = require('path');
-
-app.use(express.static('public')); // Serve static files (HTML/CSS/JS)
-
 // Serve the default index.html file for the root route
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
