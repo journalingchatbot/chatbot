@@ -21,19 +21,14 @@ const apiClient = axios.create({
     headers: { 'Authorization': `Bearer ${process.env.API_KEY}` }
 });
 
-app.use('/public', express.static('public', {
-    setHeaders: (res, path) => {
-        if (path.endsWith('.css')) {
-            res.set('Content-Type', 'text/css');
-        }
-    }
-}));
+const path = require('path');
 
-app.use(express.static('public', {
-    setHeaders: (res, filePath) => {
-        console.log(`Serving: ${filePath}`);
-    }
-}));
+app.use(express.static('public')); // Serve static files (HTML/CSS/JS)
+
+// Serve the default index.html file for the root route
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // API Route
 console.log('Route /api/data is registered');
