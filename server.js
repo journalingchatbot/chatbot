@@ -8,11 +8,11 @@ const app = express();
 // Middleware
 app.use(cors()); // Enable CORS
 app.use(express.json()); // Parse JSON request bodies
-app.use(express.static('public')); // Serve static files (HTML/CSS/JS)
+app.use(express.static('docs')); // Serve static files (HTML/CSS/JS)
 
 // Serve the default index.html file for the root route
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'docs', 'index.html'));
 });
 
 // Create Axios instance for the OpenAI API
