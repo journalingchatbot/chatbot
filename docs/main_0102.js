@@ -1,25 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const API_KEY = import.meta.env.VITE_API_KEY;
-  console.log(API_KEY); // Ensure that the API key is loaded
   const submitButton = document.querySelector('#submit');
   const outputElement = document.querySelector('#output');
-  const inputElement = document.querySelector('#userInput'); // Textarea element for multiline input
+  const inputElement = document.querySelector('#userInput');
   const conversationCountDisplay = document.querySelector('#conversationCount');
   const userIdInput = document.querySelector('#userIdInput');
   const submitUserIdBtn = document.querySelector('#submitUserId');
   const userIdDisplay = document.querySelector('#userIdDisplay');
   const modal = document.querySelector('#userIdModal');
-  modal.classList.remove('hidden'); // 確保初始狀態下 `modal` 是顯示的
+  modal.classList.remove('hidden');
 
-  // Call the backend for data
+  // Fetch some example data from the backend
   fetch('/api/data')
       .then(response => response.json())
       .then(data => {
-        console.log(data); // Handle the data returned from the backend
+          console.log('Backend response:', data);
+          // Update UI based on response
       })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
+      .catch(error => console.error('Error fetching data:', error));
+});
 
   
   // 初始狀態下 modal 是顯示的
