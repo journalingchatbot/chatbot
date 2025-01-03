@@ -36,10 +36,7 @@ app.post('/api/data', async (req, res) => {
         res.json(response.data);
     } catch (error) {
         console.error('Error details:', error.response?.data || error.message);
-        res.status(500).json({
-            error: 'Failed to fetch data',
-            details: error.response?.data || error.message
-        });
+        res.status(500).json({ error: 'Failed to fetch data', details: error.response?.data || error.message });
     }
 });
 
