@@ -8,7 +8,8 @@ const app = express();
 // Middleware
 app.use(cors()); // Enable CORS
 app.use(express.json()); // Parse JSON request bodies
-app.use(express.static(path.join(__dirname, 'docs'))); // Serve static files (HTML/CSS/JS)
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'docs')));
 
 // Serve the default index.html file for the root route
 app.get('/', (req, res) => {
